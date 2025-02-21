@@ -1,64 +1,70 @@
-GMap.NET Türkiye Harita Önbelleği (Cache) Veritabanı
 
-📌 Açıklama (Description)
+📥 [Download Data.gmdb]    https://drive.google.com/file/d/1wAWpeDXUgDqQ9HAp2Udt-hVCysR0TTiW/view?usp=sharing
 
-Bu repo, GMap.NET için Tüm Türkiye'nin harita verilerini içeren bir GMDB önbelleğini sunar. Bu sayede çevrimdışı kullanım için tüm Türkiye harita verilerine hızlı bir şekilde erişebilirsiniz. Özellikle GIS projelerinde, navigasyon uygulamalarında ve offline harita sistemlerinde kullanışlıdır.
+# GMap.NET Türkiye Cache Veritabanı (GMDB) 🌍
 
-This repository provides a GMDB cache database containing all Turkey map data for GMap.NET. This allows fast access to offline map data for Turkey. It is particularly useful for GIS projects, navigation applications, and offline mapping systems.
+Bu repo, **GMap.NET** için **Türkiye'nin tamamının** önbelleğe alınmış harita verilerini içeren bir **GMDB** dosyası sağlar. Bu sayede internet bağlantısı olmadan, Türkiye'nin tüm harita verilerine **hızlı ve sorunsuz** bir şekilde erişebilirsiniz.
 
-🌍 Özellikler (Features)
+İndirilen Dosyayı projeye ekleyin:
 
-✅ Tam Türkiye haritasını kapsar. ✅ Çevrimdışı kullanım için uygundur. ✅ Hızlı erişim ve düşük gecikme süresi. ✅ GMap.NET ile uyumlu. ✅ Açık kaynak ve ücretsiz kullanım.
+İndirdiğiniz Data.gmdb dosyasını, projenizde bulunan Maps klasörüne taşıyın.
+Dosyanın Copy Always olarak ayarlandığından emin olun:
 
-✅ Covers the entire map of Turkey. ✅ Suitable for offline usage. ✅ Fast access and low latency. ✅ Compatible with GMap.NET. ✅ Open-source and free to use.
+Visual Studio’da Data.gmdb dosyasına sağ tıklayın.
+"Properties" (Özellikler) → "Copy to Output Directory" ayarını "Copy always" olarak değiştirin.
 
-📥 Kurulum ve Kullanım (Installation & Usage)
+ GMaps.Instance.Mode = AccessMode.CacheOnly; olarak değiştirip kullanablirsiniz.
 
-1️⃣ GMDB Dosyasını İndirin (Download GMDB File)
+## 📌 Özellikler
+- **Tüm Türkiye'nin** detaylı harita verileri
+- **Offline kullanım** için optimize edilmiş
+- **GMap.NET** ile tam uyumlu
+- **Hızlı erişim** ve gecikmesiz kullanım
+- **Zoom aralığı: 7 - 16** (Büyük ölçekten detaylı sokak seviyesine kadar)
 
-Repo içindeki turkey-map-cache.gmdb dosyasını indirin.
+## 📥 Kurulum & Kullanım
+1. **GMap.NET** kütüphanesini projenize ekleyin.
+2. Bu repo içerisindeki `Turkey.gmdb` dosyasını indirin.
+3. **GMap.NET** ayarlarında **cache database path** olarak bu dosyanın konumunu belirtin:
+   ```csharp
+   GMaps.Instance.Mode = AccessMode.ServerAndCache;
+   MainMap.CacheLocation = @"C:\Path\To\Turkey.gmdb";
+   ```
+4. **Keyifli kullanımlar!** 🚀
 
-Download the turkey-map-cache.gmdb file from this repository.
+## 📌 Lisans ve Katkı
+Bu proje açık kaynak olup, dilediğiniz gibi kullanabilir ve geliştirebilirsiniz. **Katkılarınızı bekliyoruz!** 😊
 
-2️⃣ GMap.NET ile Kullanım (Using with GMap.NET)
+---
 
-GMap.NET projelerinizde GMDB veritabanını kullanmak için aşağıdaki adımları izleyin:
+# GMap.NET Turkey Cache Database (GMDB) 🌍
 
-Follow these steps to use the GMDB database in your GMap.NET projects:
+This repository provides a **GMDB file** containing cached map data for **the entire Turkey** for **GMap.NET**. With this, you can access detailed map data of Turkey **quickly and seamlessly, even without an internet connection**.
 
-GMapProvider.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)";
-GMaps.Instance.Mode = AccessMode.CacheOnly;
-gMapControl1.CacheLocation = @"C:\your_cache_path";
+Move the downloaded file to the project:
 
-Dosyanın yolunu gMapControl1.CacheLocation olarak belirleyin. Set the path of the file in gMapControl1.CacheLocation.
+Place the downloaded Data.gmdb file inside the Maps folder in your project.
+Ensure the file is set to "Copy Always":
+In Visual Studio, right-click on Data.gmdb.
+Go to "Properties" → "Copy to Output Directory" and set it to "Copy always".
+GMaps.Instance.Mode = AccessMode.CacheOnly; 
 
-🛠 Gereksinimler (Requirements)
+## 📌 Features
+- **Complete Turkey** map data
+- **Optimized for offline usage**
+- **Fully compatible** with **GMap.NET**
+- **Fast access** with no lag
+- **Zoom range: 7 - 16** (From broad overview to detailed street-level maps)
 
-.NET Framework / .NET Core
+## 📥 Installation & Usage
+1. Add the **GMap.NET** library to your project.
+2. Download the `Turkey.gmdb` file from this repository.
+3. Set the **cache database path** in **GMap.NET** settings:
+   ```csharp
+   GMaps.Instance.Mode = AccessMode.ServerAndCache;
+   MainMap.CacheLocation = @"C:\Path\To\Turkey.gmdb";
+   ```
+4. **Enjoy seamless mapping!** 🚀
 
-GMap.NET
-
-Windows / Linux / macOS
-
-📜 Lisans (License)
-
-Bu proje MIT Lisansı ile lisanslanmıştır.
-
-This project is licensed under the MIT License.
-
-🙌 Katkıda Bulunun (Contribute)
-
-Geliştirmeler ve yeni veri eklemeleri için katkılarınızı bekliyoruz! Pull request'lerinizi gönderebilirsiniz.
-
-We welcome contributions for improvements and new data additions! Feel free to submit pull requests.
-
-📧 İletişim (Contact)
-
-Sorularınız veya önerileriniz için email@example.com adresinden bana ulaşabilirsiniz.
-
-For questions or suggestions, you can contact me at email@example.com.
-
-🚀 Harita verileri ile daha güçlü projeler geliştirin!
-
-🚀 Build stronger projects with map data!
-
+## 📌 License & Contribution
+This project is open-source; feel free to use and contribute. **We welcome your support!** 😊
